@@ -1,5 +1,9 @@
 package io.github.akilles.worker
 
+import io.github.oshai.kotlinlogging.KotlinLogging
+
+private val logger = KotlinLogging.logger {}
+
 fun main() {
-    println("Hello world");
+    logger.info { "Hello world" }
 }

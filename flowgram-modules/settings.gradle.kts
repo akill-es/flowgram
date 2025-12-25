@@ -10,5 +10,6 @@ plugins {
 }
 
 include(":worker")
+include(":fake-message-feed-service")
 
 rootProject.name = "flowgram-modules"
