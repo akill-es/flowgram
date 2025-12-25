@@ -1,6 +1,7 @@
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
+        maven("https://packages.confluent.io/maven/")
     }
 }
 
@@ -11,5 +12,6 @@ plugins {
 
 include(":worker")
 include(":fake-message-feed-service")
+include(":models-api")
 
 rootProject.name = "flowgram-modules"
