@@ -11,6 +11,7 @@ plugins {
 }
 
 include(":worker")
+include(":orchestrator")
 include(":fake-message-feed-service")
 include(":models-api")
 
