@@ -3,7 +3,7 @@ package io.github.akilles.flowgram.models
 sealed class Task {
 
     data class PollTask(
-        val sources: List<String>,
+        val sources: List<Source>,
         val destination: List<Destination>,
         val filter: MessageFilter,
         val workflowId: Long

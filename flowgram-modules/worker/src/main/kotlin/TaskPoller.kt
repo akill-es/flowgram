@@ -21,6 +21,8 @@ interface TaskPoller<TASK_TYPE : Any> : AutoCloseable {
      * Invokes <code>consumer</code> callback on every message receive
      */
     fun start(consumer: Consumer<TASK_TYPE>)
+
+    fun awaitTermination();
 }
 
 /**
@@ -39,6 +41,7 @@ class KafkaTaskPoller(
         private val logger = KotlinLogging.logger { }
     }
 
+    @Volatile
     private var thread: Thread? = null
     private val threadLock = ReentrantLock()
 
@@ -57,6 +60,10 @@ class KafkaTaskPoller(
         modifyThread {
             stopThread()
         }
+    }
+
+    override fun awaitTermination() {
+        thread?.join()
     }
 
     private fun run(taskAction: Consumer<Task>) {
