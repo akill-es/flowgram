@@ -94,6 +94,7 @@ class WorkflowDefinitionService(
 
     private fun toDTO(entity: WorkflowDefinitionEntity): WorkflowDefinitionDTO {
         return WorkflowDefinitionDTO(
+            id = entity.id ?: error("No ID was generated for the entity $entity"),
             sourcesChatIds = entity.sourcesChatIds,
             destinationChatIds = entity.destinationChatIds,
             botKey = entity.botKey,

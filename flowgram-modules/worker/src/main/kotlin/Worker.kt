@@ -123,10 +123,9 @@ class PollTaskHandler(
         private val lastReadMessageOffset: MutableMap<String, Long> = mutableMapOf()
 
         override fun run() {
+            logger.info { "Starting poller for workflowId=${task.workflowId} $task" }
 
             while (!Thread.currentThread().isInterrupted) {
-                logger.info { "Starting poller for workflowId=${task.workflowId} $task" }
-
                 val messages = mutableListOf<TelegramUpdates.TelegramUpdate>()
 
                 for (source in task.sources) {
