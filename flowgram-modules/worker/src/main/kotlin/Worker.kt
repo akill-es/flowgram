@@ -4,27 +4,91 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import io.github.akilles.flowgram.models.DestinationType
 import io.github.akilles.flowgram.models.Source
 import io.github.akilles.flowgram.models.Task
 import io.github.oshai.kotlinlogging.KotlinLogging
-import java.lang.StringBuilder
 import java.time.Duration
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+
+
+class SendTaskHandler(
+    private val httpClient: OkHttpClient,
+    private val mapper: ObjectMapper,
+    private val threadPool: ExecutorService
+) {
+
+    data class Message(
+        @JsonProperty("chat_id")
+        val chatId: Long,
+        val text: String
+    )
+
+    class SendTask(
+        private val task: Task.SendTask,
+        private val mapper: ObjectMapper,
+        private val httpClient: OkHttpClient
+    ) : Runnable {
+        companion object {
+            private val logger = KotlinLogging.logger { }
+
+        }
+
+        override fun run() {
+            logger.info { "Sending message ${task.messageBody} to ${task.destinationChatId}" }
+
+            try {
+                val message = Message(task.destinationChatId, task.messageBody)
+
+                val body = mapper.writeValueAsString(message)
+                    .toRequestBody("application/json".toMediaTypeOrNull())
+
+                val request = Request.Builder()
+                    .url("https://api.telegram.org/bot${task.botKey}/sendMessage")
+                    .post(body)
+                    .build()
+
+                val response = httpClient.newCall(request).execute().use {
+                    if (!it.isSuccessful) {
+                        error("Failed to send message ${it.code} ${it.body.string()}")
+                    }
+                    it.body.string()
+                }
+
+                logger.info { "Send message response $response" }
+
+                logger.info { "Finished sending message to ${task.destinationChatId}" }
+            } catch (ex: Exception) {
+                logger.error(ex) { "Failed to send the message to ${task.destinationChatId}" }
+            }
+        }
+    }
+
+    fun process(task: Task.SendTask) {
+        threadPool.submit(SendTask(task, mapper, httpClient))
+    }
+}
 
 
 class PollTaskHandler(
     private val httpClient: OkHttpClient,
-    private val mapper: ObjectMapper
+    private val mapper: ObjectMapper,
+    private val taskPublisher: TaskPublisher
 ) {
-
-
     class TelegramPoller(
         private val task: Task.PollTask,
         private val pollingInterval: Duration,
         private val httpClient: OkHttpClient,
-        private val objectMapper: ObjectMapper
+        private val objectMapper: ObjectMapper,
+        private val taskPublisher: TaskPublisher
     ) : Runnable {
+
+        private val filterSet = task.filter.value.split(',').toSet()
 
         @JsonIgnoreProperties(ignoreUnknown = true)
         data class TelegramUpdates(
@@ -71,6 +135,31 @@ class PollTaskHandler(
 
                 if (messages.isNotEmpty()) {
                     logger.info { "Received ${messages.size} for task $task:\n$messages" }
+
+                    for (message in messages) {
+
+                        message.takeIf {
+                            filterSet.any { filter ->
+                                message.message.text.contains(
+                                    filter,
+                                    true
+                                )
+                            }
+                        }?.let {
+                            for (destination in task.destination) {
+                                if (destination.type == DestinationType.SEND) {
+                                    taskPublisher.publish(
+                                        Task.SendTask(
+                                            destination.chatId, destination.botKey,
+                                            task.workflowId, message.message.text
+                                        )
+                                    )
+                                }
+                            }
+                        }
+
+
+                    }
                 }
 
                 Thread.sleep(pollingInterval)
@@ -78,7 +167,8 @@ class PollTaskHandler(
         }
 
         private fun fetchMessages(source: Source): List<TelegramUpdates.TelegramUpdate> {
-            val urlBuilder = StringBuilder("https://api.telegram.org/bot${source.botKey}/getUpdates")
+            val urlBuilder =
+                StringBuilder("https://api.telegram.org/bot${source.botKey}/getUpdates")
             val lastOffset = lastReadMessageOffset[source.botName]
 
             if (lastOffset != null) {
@@ -112,7 +202,7 @@ class PollTaskHandler(
         workflowToPollingThreads.computeIfAbsent(task.workflowId) {
             val tgPoller = TelegramPoller(
                 task, Duration.ofSeconds(15), httpClient,
-                mapper
+                mapper, taskPublisher
             )
 
             val thread = Thread(tgPoller)
@@ -127,18 +217,19 @@ class PollTaskHandler(
 class Worker(
     private val poller: KafkaTaskPoller,
     private val httpClient: OkHttpClient,
-    private val objectMapper: ObjectMapper
+    private val objectMapper: ObjectMapper,
+    private val taskPublisher: TaskPublisher
 ) {
 
-    private val pollTaskHandler = PollTaskHandler(httpClient, objectMapper)
+    private val pollTaskHandler = PollTaskHandler(httpClient, objectMapper, taskPublisher)
+    private val sendTaskHandler =
+        SendTaskHandler(httpClient, objectMapper, Executors.newVirtualThreadPerTaskExecutor())
 
     fun start() {
         poller.start { task ->
             when (task) {
                 is Task.PollTask -> pollTaskHandler.process(task)
-                is Task.SendTask -> {
-                    // ignore for now
-                }
+                is Task.SendTask -> sendTaskHandler.process(task)
             }
         }
         poller.awaitTermination()

@@ -11,6 +11,7 @@ sealed class Task {
 
     data class SendTask(
         val destinationChatId: Long,
+        val botKey: String,
         val workflowId: Long,
         val messageBody: String
     ) : Task()

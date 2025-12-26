@@ -5,6 +5,7 @@ import io.github.akilles.flowgram.models.Destination
 import io.github.akilles.flowgram.models.DestinationType
 import io.github.akilles.flowgram.models.FilterType
 import io.github.akilles.flowgram.models.MessageFilter
+import io.github.akilles.flowgram.models.Source
 import io.github.akilles.flowgram.models.Task
 import java.util.Collections
 import java.util.UUID
@@ -70,11 +71,11 @@ class KafkaTaskPollerTest : BaseKafkaTest() {
 
             val dispatchedTasks = listOf(
                 Task.PollTask(
-                    listOf("source"), listOf(Destination(DestinationType.SEND, 10)),
+                    listOf(Source("dfds", "fdsfd")), listOf(Destination(DestinationType.SEND, 10, "")),
                     MessageFilter(FilterType.KEYWORD, "filter"), 101
                 ),
                 Task.SendTask(
-                    10, 101, "messageBody"
+                    10, "", 101, "messageBody"
                 )
             )
 
