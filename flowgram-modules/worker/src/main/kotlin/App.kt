@@ -2,15 +2,15 @@ package io.github.akilles.flowgram.worker
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.github.akilles.flowgram.models.Task
-import io.github.oshai.kotlinlogging.KotlinLogging
 import okhttp3.OkHttpClient
 
-private val logger = KotlinLogging.logger {}
-
 fun main() {
+
     val mapper = jacksonObjectMapper()
+
+    val bootstrapServers = listOf("localhost:9092")
     val poller = KafkaTaskPoller(
-        listOf("localhost:9092"),
+        bootstrapServers,
         mapOf(
             "tasks.poll" to Task.PollTask::class,
             "tasks.send" to Task.SendTask::class,
@@ -18,26 +18,22 @@ fun main() {
         "worker-group",
         mapper
     )
+    val taskPublisher = KafkaTaskPublisher(bootstrapServers, mapper)
+//
+//    taskPublisher.publish(
+//        Task.PollTask(
+//            sources = listOf(Source("shiny_workflow_telegram_bot", "<toke>")),
+//            destination = listOf(
+//                Destination(DestinationType.SEND, -5188450485L, "<token>")
+//            ),
+//            filter = MessageFilter(type = FilterType.KEYWORD, "huy"),
+//            101
+//        )
+//    )
+
     val httpClient = OkHttpClient()
 
-    val worker = Worker(poller, httpClient, mapper)
+    val worker = Worker(poller, httpClient, mapper, taskPublisher)
 
-//    val tgPoller = PollTaskHandler.TelegramPoller(
-//        Task.PollTask(
-//            listOf(
-//                Source(
-//                    "shiny_workflow_telegram_bot",
-//                    "<token>"
-//                )
-//            ),
-//            emptyList(),
-//            MessageFilter(FilterType.KEYWORD, "huy"),
-//            100L
-//        ),
-//        Duration.ofSeconds(15),
-//        httpClient,
-//        mapper
-//    )
-//
-//    tgPoller.run()
+    worker.start()
 }
