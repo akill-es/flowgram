@@ -13,6 +13,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
 
+    implementation("com.squareup.okhttp3:okhttp:5.3.2")
+
     implementation(platform("org.testcontainers:testcontainers-bom:2.0.2"))
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:testcontainers-kafka")
