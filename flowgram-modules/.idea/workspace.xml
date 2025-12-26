@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4e82f9a-464e-455c-b948-0930306820d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/worker/src/main/kotlin/Models.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker/src/main/kotlin/TaskPoller.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/worker/build.gradle.kts" afterDir="false" />
-    </list>
+    <list default="true" id="d4e82f9a-464e-455c-b948-0930306820d6" name="Changes" comment="Enrich with id workflow definition DTO" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,41 +40,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="flowgram-modules" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
-                <item name="fake-message-feed-service" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
-                <item name="fake-message-feed-service" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
-                <item name="fake-message-feed-service" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
                 <item name="worker" type="2d1252cf:ModuleNode" />
               </path>
               <path>
@@ -105,9 +65,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
+        <option value="Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -128,6 +89,11 @@
     "Gradle.Download Sources.executor": "Run",
     "Gradle.FakeMessageFeedServiceApplicationTests.Test Generates Messages.executor": "Run",
     "Gradle.FakeMessageFeedServiceApplicationTests.executor": "Run",
+    "Gradle.KafkaTaskPollerTest.Test consumes and routes messages.executor": "Run",
+    "Gradle.KafkaTaskPollerTest.Test simple producer and consumer.executor": "Run",
+    "Gradle.KafkaTaskPollerTest.executor": "Run",
+    "Gradle.KafkaTaskPollerTest.test.executor": "Run",
+    "Gradle.SimpleKafkaTest.Test simple producer and consumer.executor": "Run",
     "Gradle.flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest].executor": "Run",
     "Gradle.flowgram-modules [bootRun].executor": "Run",
     "Gradle.flowgram-modules [run].executor": "Run",
@@ -137,23 +103,37 @@
     "Gradle.flowgram-modules:worker [run].executor": "Run",
     "Kotlin.AppKt.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHELLCHECK.PATH": "/Users/akmalalikhujaev/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/IntelliJ IDEA.app.plugins/Shell Script/shellcheck",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.OrchestratorApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "/Users/akmalalikhujaev/Personal/Dev/hackaton/flowgram/flowgram-modules/app/src/main/kotlin/App.kt",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "onboarding.tips.debug.path": "/Users/akmalalikhujaev/Personal/Dev/hackaton/flowgram/flowgram-modules/models-api/src/main/kotlin/Main.kt",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle worker:run" />
       <command value="gradle :fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest]">
-    <configuration name="FakeMessageFeedServiceApplicationTests.Test Generates Messages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Spring Boot.OrchestratorApplication">
+    <configuration name="KafkaTaskPollerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,9 +144,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value=":worker:test" />
             <option value="--tests" />
-            <option value="&quot;io.github.akilles.fakemessagefeedservice.FakeMessageFeedServiceApplicationTests.Test Generates Messages&quot;" />
+            <option value="&quot;io.github.akilles.flowgram.worker.KafkaTaskPollerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -177,7 +157,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="KafkaTaskPollerTest.Test consumes and routes messages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,83 +168,73 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":fake-message-feed-service:bootBuildImage" />
-            <option value="--imageName=akilles/fake-message-service:latest" />
+            <option value=":worker:test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.akilles.flowgram.worker.KafkaTaskPollerTest.Test consumes and routes messages&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="flowgram-modules [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="KafkaTaskPollerTest.Test simple producer and consumer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="bootRun" />
+            <option value=":worker:test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.akilles.flowgram.worker.KafkaTaskPollerTest.Test simple producer and consumer&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="flowgram-modules [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="KafkaTaskPollerTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="test" />
+            <option value=":worker:test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.akilles.flowgram.worker.KafkaTaskPollerTest.test&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="flowgram-modules:fake-message-feed-service [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/fake-message-feed-service" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
+    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.akilles.flowgram.worker.AppKt" />
+      <module name="flowgram-modules.worker.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="flowgram-modules" />
@@ -293,13 +263,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrchestratorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="flowgram-modules.orchestrator.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.akilles.flowgram.orchestrator.OrchestratorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest]" />
-        <item itemvalue="Gradle.flowgram-modules:fake-message-feed-service [test]" />
-        <item itemvalue="Gradle.FakeMessageFeedServiceApplicationTests.Test Generates Messages" />
-        <item itemvalue="Gradle.flowgram-modules [test]" />
-        <item itemvalue="Gradle.flowgram-modules [bootRun]" />
+        <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="Gradle.KafkaTaskPollerTest" />
+        <item itemvalue="Gradle.KafkaTaskPollerTest.Test consumes and routes messages" />
+        <item itemvalue="Gradle.KafkaTaskPollerTest.test" />
+        <item itemvalue="Gradle.KafkaTaskPollerTest.Test simple producer and consumer" />
       </list>
     </recent_temporary>
   </component>
@@ -319,8 +296,32 @@
       <updated>1766685168222</updated>
       <workItem from="1766685169872" duration="1168000" />
       <workItem from="1766686350007" duration="58000" />
-      <workItem from="1766686412543" duration="4378000" />
+      <workItem from="1766686412543" duration="30786000" />
     </task>
+    <task id="LOCAL-00001" summary="Enrich with id workflow definition DTO">
+      <option name="closed" value="true" />
+      <created>1766760351184</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1766760351184</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Enrich with id workflow definition DTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enrich with id workflow definition DTO" />
   </component>
 </project>

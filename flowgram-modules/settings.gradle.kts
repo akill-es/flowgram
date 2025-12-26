@@ -15,3 +15,5 @@ include(":fake-message-feed-service")
 include(":models-api")
 
 rootProject.name = "flowgram-modules"
+
+include("telegram-api")
