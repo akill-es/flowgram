@@ -1,6 +1,6 @@
 package io.github.akilles.flowgram.models
 
-class MessageFilter(
+data class MessageFilter(
     val type: FilterType,
     val value: String
 )

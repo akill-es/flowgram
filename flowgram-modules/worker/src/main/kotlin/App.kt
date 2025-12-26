@@ -1,4 +1,4 @@
-package io.github.akilles.worker
+package io.github.akilles.flowgram.worker
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 

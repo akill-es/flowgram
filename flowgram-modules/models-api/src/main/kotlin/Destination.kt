@@ -1,6 +1,6 @@
 package io.github.akilles.flowgram.models
 
-class Destination(
+data class Destination(
     val type: DestinationType,
     val chatId: Long
 )
