@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4e82f9a-464e-455c-b948-0930306820d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/src/main/kotlin/Models.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/src/main/kotlin/TaskPoller.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/worker/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/worker/src/main/kotlin/App.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +32,9 @@
         <task path="$PROJECT_DIR$/worker">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/fake-message-feed-service">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -50,6 +52,30 @@
                 <item name="flowgram-modules" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
+                <item name="fake-message-feed-service" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
+                <item name="fake-message-feed-service" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="flowgram-modules" type="f1a62948:ProjectNode" />
+                <item name="fake-message-feed-service" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -76,6 +102,15 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -87,29 +122,38 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build flowgram-modules.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.flowgram-modules [worker:run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.flowgram-modules:worker [run].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.AppKt.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;/Users/akmalalikhujaev/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/IntelliJ IDEA.app.plugins/Shell Script/shellcheck&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/create-fake-msg-feed-service&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/akmalalikhujaev/Personal/Dev/hackaton/flowgram/flowgram-modules/app/src/main/kotlin/App.kt&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build flowgram-modules.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.FakeMessageFeedServiceApplicationTests.Test Generates Messages.executor": "Run",
+    "Gradle.FakeMessageFeedServiceApplicationTests.executor": "Run",
+    "Gradle.flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest].executor": "Run",
+    "Gradle.flowgram-modules [bootRun].executor": "Run",
+    "Gradle.flowgram-modules [run].executor": "Run",
+    "Gradle.flowgram-modules [test].executor": "Run",
+    "Gradle.flowgram-modules [worker:run].executor": "Run",
+    "Gradle.flowgram-modules:fake-message-feed-service [test].executor": "Run",
+    "Gradle.flowgram-modules:worker [run].executor": "Run",
+    "Kotlin.AppKt.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "/Users/akmalalikhujaev/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/IntelliJ IDEA.app.plugins/Shell Script/shellcheck",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/Users/akmalalikhujaev/Personal/Dev/hackaton/flowgram/flowgram-modules/app/src/main/kotlin/App.kt",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle worker:run" />
+      <command value="gradle :fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.flowgram-modules [worker:run]">
-    <configuration name="flowgram-modules [worker:run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest]">
+    <configuration name="FakeMessageFeedServiceApplicationTests.Test Generates Messages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -120,7 +164,32 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="worker:run" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.akilles.fakemessagefeedservice.FakeMessageFeedServiceApplicationTests.Test Generates Messages&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":fake-message-feed-service:bootBuildImage" />
+            <option value="--imageName=akilles/fake-message-service:latest" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -131,10 +200,10 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="flowgram-modules:worker [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="flowgram-modules [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/worker" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -142,7 +211,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value="bootRun" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -153,12 +222,60 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AppKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="io.github.akilles.worker.AppKt" />
-      <module name="flowgram-modules.worker.main" />
+    <configuration name="flowgram-modules [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="flowgram-modules:fake-message-feed-service [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/fake-message-feed-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="flowgram-modules" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="flowgram-modules" />
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
     <configuration name="FakeMessageFeedServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -170,7 +287,7 @@
     </configuration>
     <configuration name="FakeMessageFeedServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="fake-message-feed-service.main" />
+      <module name="flowgram-modules.fake-message-feed-service.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.akilles.fakemessagefeedservice.FakeMessageFeedServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,9 +295,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.flowgram-modules [worker:run]" />
-        <item itemvalue="Gradle.flowgram-modules:worker [run]" />
-        <item itemvalue="Kotlin.AppKt" />
+        <item itemvalue="Gradle.flowgram-modules [:fake-message-feed-service:bootBuildImage --imageName=akilles/fake-message-service:latest]" />
+        <item itemvalue="Gradle.flowgram-modules:fake-message-feed-service [test]" />
+        <item itemvalue="Gradle.FakeMessageFeedServiceApplicationTests.Test Generates Messages" />
+        <item itemvalue="Gradle.flowgram-modules [test]" />
+        <item itemvalue="Gradle.flowgram-modules [bootRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -200,6 +319,7 @@
       <updated>1766685168222</updated>
       <workItem from="1766685169872" duration="1168000" />
       <workItem from="1766686350007" duration="58000" />
+      <workItem from="1766686412543" duration="4378000" />
     </task>
     <servers />
   </component>
